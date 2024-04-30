@@ -30,6 +30,7 @@ $THEME->sheets = [];
 $THEME->editor_sheets = [];
 $THEME->editor_scss = ['editor'];
 $THEME->usefallback = true;
+$THEME->removedprimarynavitems = ['home'];
 
 $THEME->scss = function($theme) {
     return theme_shadow_get_main_scss_content($theme);
