@@ -35,16 +35,16 @@ $THEME->scss = function($theme) {
     return theme_shadow_get_main_scss_content($theme);
 };
 
-//$THEME->layouts = [
-//    // The site home page.
-//    'frontpage' => [
-//        'file' => 'frontpage.php',
-//        'regions' => ['side-pre'],
-//        'defaultregion' => 'side-pre',
-//        'options' => ['nonavbar' => true],
-//    ],
-//
-//];
+$THEME->layouts = [
+    // The site home page.
+    'frontpage' => [
+        'file' => 'frontpage.php',
+        'regions' => ['side-pre'],
+        'defaultregion' => 'side-pre',
+        'options' => ['nonavbar' => true],
+    ],
+
+];
 
 $THEME->parents = ['boost'];
 $THEME->enable_dock = false;
