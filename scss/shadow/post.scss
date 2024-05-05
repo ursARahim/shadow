@@ -13,3 +13,27 @@
 .login-wrapper {
   background-color: #9cbcf0 !important;
 }
+
+.frontpage-course-list-all{
+  display: flex;
+}
+
+.frontpage-course-list-all > *:not(:last-child) {
+  margin-right: 20px;
+}
+
+#frontpage-available-course-list h2 {
+  display: none;
+}
+
+#exploreallcourses-container {
+  display: flex;
+  justify-content: center;
+}
+
+#explorseallcourses {
+  border: 2px solid #153bd4;
+  background-color: #153bd4;
+  color: white;
+  padding: 6px;
+}

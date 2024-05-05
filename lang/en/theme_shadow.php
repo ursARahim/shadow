@@ -31,3 +31,4 @@ $string['choosereadme'] = 'Shadow theme is a child theme of Boost. It provides a
 $string['pluginname'] = 'Shadow';
 // We need to include a lang string for each block region.
 $string['region-side-pre'] = 'Right';
+$string['popularcourses'] = 'Popular Courses';
