@@ -29,6 +29,8 @@
 #exploreallcourses-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 #explorseallcourses {
@@ -36,4 +38,107 @@
   background-color: #153bd4;
   color: white;
   padding: 6px;
+}
+
+.lmscoursecategories {
+  display: flex;
+}
+
+.individualcategory {
+  border: 1px solid #153bd4;
+  background-color: #EDF0FF;
+  color: black;
+  padding: 6px;
+  border-radius: 8px; /* Rounded corners */
+  margin-right: 24px; /* Add a gap between elements */
+}
+
+/* Remove the right margin from the last element */
+.individualcategory:last-child {
+  margin-right: 0;
+}
+
+#topofscroll {
+  min-width: 1400px;
+}
+
+.course-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 30px 0 0 0;
+}
+
+.course-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #EDF0FF;
+
+  .course-image{
+    height: 170px;
+    width: 300px;
+
+    object-fit: cover;
+    background-color: #e0c7c5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .divider{
+    border: 1px white solid;
+    margin: 0;
+  }
+  .card-body{
+    padding: 16px;
+
+    .card-title{
+      font-size: 24px;
+      font-weight: 500;
+      color: #02030E;
+    }
+
+    .card-text{
+      font-size: 16px;
+      font-weight: 400;
+      color: #3A4651;
+    }
+  }
+
+  .card-footer{
+    padding: 16px;
+    display: flex;
+    gap: 4px;
+    align-self: end;
+    width: 100%;
+    justify-content: space-between;
+    border: 0;
+
+    .instructor-wrapper{
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      font-size: 12px;
+      color: #3A4651;
+    }
+
+    .course-resource{
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      i{
+        font-size: 20px;
+      }
+    }
+  }
+
+  .mentor-image{
+    background-color: rgba(76, 250, 157, 0.29);
+    height: 22px;
+    width: 22px;
+    border-radius: 100px;
+  }
 }

@@ -82,7 +82,34 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
+
 $popularcourses = get_string('popularcourses', 'theme_shadow');
+global $DB;
+$allcoursecategories = array_values($DB->get_records('course_categories'));
+$lmscourses = array_values($DB->get_records('course'));
+
+$coursesWithCategoriesAndEnrollment = [];
+foreach ($lmscourses as $course) {
+    $category = $DB->get_field('course_categories', 'name', ['id' => $course->category]);
+    $course->category_name = $category;
+
+    // Fetch enrollment count for the current course
+    $enrollmentCount = $DB->count_records_select(
+        'user_enrolments',
+        'enrolid IN (SELECT id FROM {enrol} WHERE courseid = :courseid)',
+        ['courseid' => $course->id]
+    );
+
+    $course->enrollment_count = $enrollmentCount;
+    $courseimageurl = \core_course\external\course_summary_exporter::get_course_image($course);
+    $course->course_image_url = $courseimageurl;
+
+    $coursesWithCategoriesAndEnrollment[] = $course;
+}
+
+usort($coursesWithCategoriesAndEnrollment, function($a, $b) {
+    return $b->enrollment_count - $a->enrollment_count;
+});
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -104,7 +131,9 @@ $templatecontext = [
     'overflow' => $overflow,
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
-    'popularcourses' => $popularcourses
+    'popularcourses' => $popularcourses,
+    'allcoursecategories' => $allcoursecategories,
+    'lmscourses' => $coursesWithCategoriesAndEnrollment,
 ];
 
 echo $OUTPUT->render_from_template('theme_shadow/frontpage', $templatecontext);

@@ -137,6 +137,48 @@
 <!--            {{/secondarymoremenu}}-->
 
             <h2>{{popularcourses}}</h2>
+            <div class="lmscoursecategories">
+                {{#allcoursecategories}}
+                    <p class="individualcategory">{{name}}</p>
+                {{/allcoursecategories}}
+            </div>
+<!--            <div>-->
+<!--                {{#lmscourses}}-->
+<!--                    <div>-->
+<!--                        <p>Enrolled Participants: {{enrollment_count}}</p>-->
+<!--                        <p>Category: {{category_name}}</p>-->
+<!--                        <p>Full Name: {{fullname}}</p>-->
+<!--                        <p>Short Name: {{shortname}}</p>-->
+<!--                        <p>{{{summary}}}</p>-->
+<!--                    </div>-->
+<!--                {{/lmscourses}}-->
+<!--            </div>-->
+
+            <div class="course-wrapper">
+                {{#lmscourses}}
+                    <div class="course-card">
+                        <img src="{{course_image_url}}" class="course-image">
+                        <div class="card-body">
+                            <p class="card-title">{{fullname}}</p>
+                            <p class="card-text">{{{summary}}}</p>
+                        </div>
+                        <hr class="divider">
+                        <div class="card-footer">
+                            <div class="instructor-wrapper">
+                                <div>{{category_name}}</div>
+                            </div>
+                            <div class="course-resource">
+                                {{enrollment_count}}
+                            </div>
+                        </div>
+                    </div>
+                {{/lmscourses}}
+            </div>
+            <div id="exploreallcourses-container">
+                <button id="explorseallcourses">Explore all courses</button>
+            </div>
+
+
             <div id="page-content" class="pb-3 d-print-block">
                 <div id="region-main-box">
                     {{#hasregionmainsettingsmenu}}
@@ -166,9 +208,6 @@
 
                     </section>
                 </div>
-            </div>
-            <div id="exploreallcourses-container">
-            <button id="explorseallcourses">Explore all courses</button>
             </div>
         </div>
         {{> theme_boost/footer }}
